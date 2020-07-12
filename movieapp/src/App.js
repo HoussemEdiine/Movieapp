@@ -1,14 +1,13 @@
 import React,{useState} from 'react';
 import './App.css';
-import './component/moviecard'
-import Moviecard from './component/moviecard';
+import './component/movielist'
 import Modal from 'react-modal'
+import { Movielist } from './component/movielist';
 Modal.setAppElement('#root')
 function App() {
-  const [search,setsearch]=useState('')
   const [name, setname]=useState('')
   const[image , setimage]=useState('')
-  const[rating , setrating]=useState(null)
+  const[rating , setrating]=useState()
  const [isopen,setisopen]=useState(false)
   const [movieList , setmovielist]= useState([{
     id :0 , 
@@ -47,18 +46,13 @@ function App() {
   const display = () =>{
     setisopen(!isopen)
   }
-  const seaching = (e) =>{
-    setsearch(e.target.value)
-  }
-  const moviesearch = movieList.filter(movie =>{
-    return movie.name.toLowerCase().includes(search.toLowerCase()) || movie.rating==parseFloat(search)
-  })
+  
   console.log(movieList)
   return (
     <div className="App">
       <h1>Movie App</h1>
-      <button onClick= {display}>ADD</button>
-      <input placeholder='search...'  value={search} onChange={seaching} />
+      <button onClick= {display} className='btn btn-primary'>+</button>
+      
       <Modal isOpen={isopen} style={{
     overlay: {
       position: 'fixed',
@@ -80,32 +74,46 @@ function App() {
       WebkitOverflowScrolling: 'touch',
       borderRadius: '4px',
       outline: 'none',
-      padding: '20px'
+      padding: '20px',
+      width: '550px',
+      margin: 'auto'
+      
+      ,display:'flex'
     }
-  }}>   
-        <label>Name:</label>
-        <input type='text' placeholder='name...' value={name} onChange={iname}/>
-        <label>Image:</label>
-        <input type='text' placeholder='img...' value={image} onChange={onimage}/>
-        <label>Raiting:</label>
-        <input type='number'  placeholder='rating...' value={rating} onChange={mrating}/>
-        <button onClick={addmovie}>addMovie</button>  
+  }}>  
+       <div className='App'>
+         <h2>Add movie</h2>
+         <div className="input-group">
+         <div class="input-group-prepend">
+    <span class="input-group-text">Name</span>
+          </div>
+        <input type='text'  className='form-control' placeholder='name...' value={name} onChange={iname}/> 
+         </div>
+
+       <div className='input-group'>
+       <div class="input-group-prepend">
+    <span class="input-group-text">Image</span>
+  </div>
+        <input type='text' className='form-control' placeholder='img...' value={image} onChange={onimage}/>
+       </div>
+
+     <div className='input-group'>
+     <div class="input-group-prepend">
+    <span class="input-group-text">rating</span>
+  </div>
+        <input type='number'  className='form-control' placeholder='rating...' value={rating} onChange={mrating}/>
+     </div>
+
+     <div>
+       <button onClick={addmovie} className='btn btn-primary'>addMovie</button>  
+     </div>
         <div>
-          <button onClick={display}>close</button> 
+          <button onClick={display} className='btn btn-primary' id='close'>close</button> 
         </div> 
+        </div>
+      
       </Modal>
-      {moviesearch.map(item =>(
-       <Moviecard key={item.id} >
-          <div className='card-header' style={{width:'400px'}}>{item.name}</div> 
-          <div>
-            <img src={item.image} width='320' height='240' style={{margin:'5px'}}/>
-          </div>
-          <div>
-           <label>Rating:</label> {item.rating}/5
-          </div>
-       </Moviecard>
-      ))
-      }
+      <Movielist data={movieList}/>
     </div>
   
   );

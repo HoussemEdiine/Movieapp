@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+body{
+  background-color: gainsboro;
+}
 
 .App-logo {
   height: 40vmin;
@@ -37,8 +40,28 @@
   }
 }
 .card{
-  width: 400px;
+  width: 300px;
   margin: auto;
   align-items: center;
   display: flex;
+  box-shadow: black 25px 25px 20px;
 }
+.btn{
+  margin: 4px;
+}
+.input-group{
+  margin: 6px;
+
+}
+.search{
+  border: 2px solid #aaa;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+
+}
+.search:focus{
+border-color: dodgerblue;
+box-shadow: 0 0 0 0 dodgerblue;
+}
+
