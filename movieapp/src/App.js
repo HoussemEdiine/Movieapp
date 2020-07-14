@@ -51,7 +51,7 @@ function App() {
   return (
     <div className="App">
       <h1>Movie App</h1>
-      <button onClick= {display} className='btn btn-primary'>+</button>
+      <label>Adding Movies</label><button onClick= {display} className='btn btn-primary'>+</button>
       
       <Modal isOpen={isopen} style={{
     overlay: {

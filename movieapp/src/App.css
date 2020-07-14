@@ -2,7 +2,7 @@
   text-align: center;
 }
 body{
-  background-color: gainsboro;
+  background-color: bisque;
 }
 
 .App-logo {
@@ -40,11 +40,16 @@ body{
   }
 }
 .card{
-  width: 300px;
+  width: 400px;
   margin: auto;
+  border: darkblue 1px solid;
   align-items: center;
+  padding: auto;
   display: flex;
   box-shadow: black 25px 25px 20px;
+  border-radius: 5px;
+  justify-content: space-around;
+  margin-top: 50px;
 }
 .btn{
   margin: 4px;
@@ -64,4 +69,11 @@ body{
 border-color: dodgerblue;
 box-shadow: 0 0 0 0 dodgerblue;
 }
-
+.container{
+  display:flex;
+  margin-top: 90px;
+  flex-wrap: wrap;
+}
+h5{
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
