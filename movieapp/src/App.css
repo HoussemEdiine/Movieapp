@@ -2,7 +2,7 @@
   text-align: center;
 }
 body{
-  background-color: bisque;
+  background-color:lightgrey;
 }
 
 .App-logo {
@@ -76,4 +76,8 @@ box-shadow: 0 0 0 0 dodgerblue;
 }
 h5{
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.stars{
+  margin:auto;
+  align-items: center;
 }

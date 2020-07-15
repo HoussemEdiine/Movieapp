@@ -7,21 +7,30 @@ Modal.setAppElement('#root')
 function App() {
   const [name, setname]=useState('')
   const[image , setimage]=useState('')
-  const[rating , setrating]=useState()
+  const[rating , setrating]=useState(0)
  const [isopen,setisopen]=useState(false)
   const [movieList , setmovielist]= useState([{
     id :0 , 
-    name : 'harry potter',
+    name : 'harry potter 3',
     rating: 4,
     image : 'https://www.premiere.fr/sites/default/files/styles/scale_crop_1280x720/public/2018-04/montage_hp5_une.jpg'
   
   },{
     id :2 , 
     name : 'terminator',
-    rating: 3.5,
+    rating: 3,
     image :'https://images-na.ssl-images-amazon.com/images/I/A1TkRjQssmL._SL1500_.jpg'
   
-  }])
+  },
+{id : 3 , 
+name: 'harry potter 6',
+rating:4
+,
+image:'https://www.hypnoweb.net/photo/117/galerie/films/fantastique/harrypotter6.jpg'  
+
+}
+
+])
   const iname = (e)=>{
    setname(e.target.value)
   }
@@ -29,7 +38,7 @@ function App() {
     setimage(e.target.value)
   }
   const mrating = (e) =>{
-    setrating(e.target.value)
+    setrating(parseInt(e.target.value))
   }
   const addmovie = () =>{
      if(rating<6){
