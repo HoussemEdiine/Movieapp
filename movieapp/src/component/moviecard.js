@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import ReactStars from "react-rating-stars-component"
 function Moviecard(props) {
     return (
@@ -8,7 +8,7 @@ function Moviecard(props) {
         <div className='card'>
         <div key={item.id}>
           <img src={item.image}  width='400px' height='320'/>
-          <div class="card-body">
+          <div className="card-body">
                 <h5 class="card-title">{item.name}</h5>
         <label>Rating:</label><ReactStars count={5} value={item.rating} size={24}
     isHalf={true}

@@ -6,14 +6,9 @@ export  const Movielist = (props) => {
     const [searchByrate,setrate]=useState(0)
     const moviesearch = props.data.filter(movie =>{
              
-     return searchByrate  ? movie.rating===searchByrate && movie.name.toLowerCase().includes(search.toLowerCase())  : {...movie}
+     return  searchByrate >1 ? movie.rating===searchByrate &&   movie.name.toLowerCase().includes(search.toLowerCase()) :  movie.name.toLowerCase().includes(search.toLowerCase())
                
       })
-      const moviesearchR = props.data.filter(
-        movie =>{
-       return movie.rating === searchByrate
-        }
-      )
       const seaching = (e) =>{
         setsearch(e.target.value)
       }
@@ -28,6 +23,7 @@ export  const Movielist = (props) => {
               <ReactStars count={5} size={24}
               classNames='stars'
     onChange={searchrate}
+    value={0}
     isHalf={false}
     emptyIcon={<i className="far fa-star"></i>}
     halfIcon={<i className="fa fa-star-half-alt"></i>}
