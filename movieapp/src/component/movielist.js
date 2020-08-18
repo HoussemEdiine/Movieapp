@@ -6,8 +6,7 @@ export  const Movielist = (props) => {
     const [searchByrate,setrate]=useState(0)
     const moviesearch = props.data.filter(movie =>{
              
-     return  searchByrate >1 ? movie.rating===searchByrate &&   movie.name.toLowerCase().includes(search.toLowerCase()) :  movie.name.toLowerCase().includes(search.toLowerCase())
-               
+     return   movie.rating >= searchByrate &&   movie.name.toLowerCase().includes(search.toLowerCase())        
       })
       const seaching = (e) =>{
         setsearch(e.target.value)
